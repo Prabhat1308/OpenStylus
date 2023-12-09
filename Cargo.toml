@@ -24,7 +24,7 @@ eyre = "0.6.8"
 export-abi = ["stylus-sdk/export-abi"]
 
 [[bin]]
-name = "stylus-hello-world"
+name = "FFT"
 path = "src/main.rs"
 
 [lib]

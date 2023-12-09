@@ -8,12 +8,12 @@ use core::{borrow::BorrowMut, market::PhantomData};
 use stylus_sdk::sol_storage::StorageSignedU256;
 use stylus_sdk::sol_storage::StorageU256;
 use stylus_sdk::sol_storage::StorageVec;
-use stylus_sdk::*;
+use stylus_sdk::{alloy_primitives::U256, prelude::*};
 
 sol_storage!{
 
-    const MIN : U256 = -0x80000000000000000000000000000000;
-    const MAX : U256 = 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
+    const MIN_64x64 : U256 = -0x80000000000000000000000000000000;
+    const MAX_64x64 : U256 = 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
     
 }
 
@@ -280,6 +280,7 @@ impl ABDK {
         if x & 0x4000000000000000 > 0 {
             result = result.wrapping_mul(0x1306FE0A31B7152DE8D5A46305C85EDEC) >> 128;
         }
+
     
         result >>= (63 - (x >> 64)) as U128;
         assert!(result <= MAX_64x64 as U128);

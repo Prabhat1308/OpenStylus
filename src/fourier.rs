@@ -10,7 +10,6 @@ use stylus_sdk::sol_storage::StorageSignedU256;
 use stylus_sdk::sol_storage::StorageU256;
 use stylus_sdk::sol_storage::StorageVec;
 use stylus_sdk::{alloy_primitives::U256, prelude::*};
-use hex;
 
 mod trig;
 
