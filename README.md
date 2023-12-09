@@ -63,8 +63,10 @@ Meta transactions using ERC-4337 allow users to perform transactions on behalf o
 Both of these contracts have been already implemented as examples.
 
 ## ERC 1155
+ERC-1155 is a token standard on the Ethereum blockchain designed to efficiently manage different types of tokens within a single smart contract. Unlike previous standards, it allows for the creation of both fungible (identical and interchangeable) and non-fungible (unique and distinct) tokens within one contract, reducing gas fees and optimizing storage. This versatility makes it particularly suitable for gaming, where various in-game items, currencies, or collectibles can exist within a single framework, streamlining transactions and interactions on the blockchain.
 
 ## ERC 4626
+ERC-4626 is a standard to optimize and unify the technical parameters of yield-bearing vaults. It provides a standard API for tokenized yield-bearing vaults that represent shares of a single underlying ERC-20 token. ERC-4626 also outlines an optional extension for tokenized vaults utilizing ERC-20, offering basic functionality for depositing, withdrawing tokens and reading balances
 
 ## ERC 6909 
 
