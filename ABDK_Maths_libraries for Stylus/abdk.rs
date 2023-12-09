@@ -10,14 +10,20 @@ use stylus_sdk::sol_storage::StorageU256;
 use stylus_sdk::sol_storage::StorageVec;
 use stylus_sdk::{alloy_primitives::U256, prelude::*};
 
-sol_storage!{
-
+pub trait abdk {
     const MIN_64x64 : U256 = -0x80000000000000000000000000000000;
     const MAX_64x64 : U256 = 0x7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF;
-    
 }
 
+sol_storage! {
+    #[entrypoint]
+    struct ABDK {
+        /// The current state of the contract.
+        state: StorageVec<u8>,
+    }
+}
 
+#[external]
 impl ABDK {
 
     pub fn from_int(&mut self,&mut x: I256) -> Result<i128> {
