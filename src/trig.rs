@@ -5,55 +5,51 @@ use core::{borrow::BorrowMut, market::PhantomData};
 use stylus_sdk::{abi::Bytes, evm, msg, prelude::*};
 
 pub trait TrignometryParams {
+
     const INDEX_WIDTH: &'static u256;
+
     const INTERP_WIDTH: &'static u256;
-    // const INDEX_OFFSET = 28 - INDEX_WIDTH;
+    
     const INDEX_OFFSET: &'static u256;
 
-    // const INTERP_OFFSET = INDEX_OFFSET - INTERP_WIDTH;
+    
     const INTERP_OFFSET: &'static u256;
 
-    //const ANGLES_IN_CYCLE :U256 = &'static U256;
+    
     const ANGLES_IN_CYCLE: &'static u256;
 
-    //const QUADRANT_HIGH_MASK : U256 = 536_870_912;
+   
     const QUADRANT_HIGH_MASK: &'static u256;
 
-    //const QUADRANT_LOW_MASK : U256 = 268_435_456;
+   
     const QUADRANT_LOW_MASK: &'static u256;
 
-    //const SINE_TABLE_SIZE : U256 = 256;
+    
     const SINE_TABLE_SIZE: &'static u256;
 
-    //const PI :U256 = 3_141_592_653_589_793_238;
+    
     const PI: &'static u256;
 
-    //const TWO_PI : U256 = 2 * PI;
+    
     const TWO_PI: &'static u256;
 
-    //const PI_OVER_TWO  : U256 =  PI / 2;
+    
     const PI_OVER_TWO: &'static u256;
 
-    //const ENTRY_BYTES : U256 = 4; // each entry in the lookup table is 4 bytes
+    
     const ENTRY_BYTES: &'static u256;
 
-    //const ENTRY_MASK : U256 = (1 << (8 * ENTRY_BYTES)) - 1; // mask used to cast bytes32 -> lookup table entry
+  
     const ENTRY_MASK: &'static u256;
 
-    // const SIN_TABLE: [u8; 1032] = [
-    //     // Insert the hexadecimal bytes here as an array of u8 values
-    //     // The length of the array should match the length of the hex string
-    //     // For example:
-    //     // 0x00, 0x00, 0x00, 0x00, 0xc9, 0x0f, ...
-    //     // ...
-    // ];
+  
     const SIN_TABLE_: &'static [u8];
 }
 
 sol_storage! {
 
+    #[entrypoint]
 pub struct Trigonometry<T> {
-
     phantom: PhantomData<T>,
 }
 
@@ -73,13 +69,13 @@ impl<T: TrignometryParams> Trigonometry<T> {
             index = SINE_TABLE_SIZE - 1 - index;
         }
 
-        let table: &[u8] = &sin_table;
+        let table: &[U8] = &sin_table;
 
         let offset1_2 = (index + 2) * entry_bytes;
 
-        let x1_2: u256;
+        let x1_2: U256;
         unsafe {
-            x1_2 = *(table.as_ptr().add(offset1_2) as *const u256);
+            x1_2 = *(table.as_ptr().add(offset1_2) as *const U256);
         }
 
         let x1 = (x1_2 >> (8 * entry_bytes)) & entry_mask;
