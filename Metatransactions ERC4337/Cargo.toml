@@ -1,5 +1,5 @@
 [package]
-name = "stylus-hello-world-minimal"
+name = "erc4337"
 version = "0.1.0"
 edition = "2021"
 
