@@ -57,16 +57,17 @@ Functions implemented in ABDK library
 * square root
 
 ## Meta Transactions using ERC 4337
-Meta transactions using ERC-4337 allow users to perform transactions on behalf of others, paying fees in native tokens. This standard enables relayers to execute transactions, abstracting gas costs for users. By utilizing off-chain signatures, it promotes gasless interactions, enhancing usability and accessibility of decentralized applications.
+Implementation of contracts for ERC-4337 account abstraction via alternative mempool.
+Meta transactions using ERC-4337 allow users to perform transactions on behalf of others, paying fees in native tokens. This standard enables relayers to execute transactions, abstracting gas costs for users. By utilizing off-chain signatures, it promotes gasless interactions, enhancing usability and accessibility of decentralized applications.(This contract is currently under development and completed features are base account , noncce manager , stake manager , user operation and sender creator . Entrypoint and Paymaster are yet to be implemented).
 
-##  ERC20 and ERC721
-Both of these contracts have been already implemented as examples.
+##  WETH , ERC20 and ERC721
+These contracts have been directly imported from Arbitrum example repos.
 
 ## ERC 1155
-ERC-1155 is a token standard on the Ethereum blockchain designed to efficiently manage different types of tokens within a single smart contract. Unlike previous standards, it allows for the creation of both fungible (identical and interchangeable) and non-fungible (unique and distinct) tokens within one contract, reducing gas fees and optimizing storage. This versatility makes it particularly suitable for gaming, where various in-game items, currencies, or collectibles can exist within a single framework, streamlining transactions and interactions on the blockchain.
+ERC-1155 is a token standard on the Ethereum blockchain designed to efficiently manage different types of tokens within a single smart contract. Unlike previous standards, it allows for the creation of both fungible (identical and interchangeable) and non-fungible (unique and distinct) tokens within one contract, reducing gas fees and optimizing storage. This versatility makes it particularly suitable for gaming, where various in-game items, currencies, or collectibles can exist within a single framework, streamlining transactions and interactions on the blockchain. (built from scratch)
 
 ## ERC 4626
-ERC-4626 is a standard to optimize and unify the technical parameters of yield-bearing vaults. It provides a standard API for tokenized yield-bearing vaults that represent shares of a single underlying ERC-20 token. ERC-4626 also outlines an optional extension for tokenized vaults utilizing ERC-20, offering basic functionality for depositing, withdrawing tokens and reading balances
+ERC-4626 is a standard to optimize and unify the technical parameters of yield-bearing vaults. It provides a standard API for tokenized yield-bearing vaults that represent shares of a single underlying ERC-20 token. ERC-4626 also outlines an optional extension for tokenized vaults utilizing ERC-20, offering basic functionality for depositing, withdrawing tokens and reading balances. (built from scratch)
 
 ## ERC 6909 
-
+ERC-6909 is a specification for managing multiple tokens by their id in a single contract. 
