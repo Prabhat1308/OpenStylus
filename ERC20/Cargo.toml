@@ -17,6 +17,7 @@ lto = true
 panic = "abort"
 opt-level = "s"
 
+
 [lib]
 crate-type = ["lib", "cdylib"]
 
